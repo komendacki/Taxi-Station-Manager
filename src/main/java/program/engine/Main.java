@@ -1,5 +1,7 @@
 package program.engine;
 
+import program.gui.MainFrame;
+
 import javax.swing.*;
 
 /**
@@ -9,9 +11,17 @@ public class Main {
 
     public static void main(String[] args)
     {
-        JFrame frame = new JFrame("Taxi Station Manager");
-        frame.setSize(500, 400);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setVisible(true);
+
+        SwingUtilities.invokeLater(new Runnable()
+        {
+            public void run()
+            {
+                JFrame frame = new MainFrame("Taxi Station Manager");
+                frame.setSize(600, 500);
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setVisible(true);
+            }
+        });
+
     }
 }
