@@ -19,6 +19,82 @@ public class Call {
     private String tariff;
     private String status;
 
+    public int getId() {
+        return id;
+    }
+
+    public String getClient() {
+        return client;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public String getFrom() {
+        return from;
+    }
+
+    public String getTo() {
+        return to;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public String getDriver() {
+        return driver;
+    }
+
+    public int getDriverID() {
+        return driverID;
+    }
+
+    public String getVehicle() {
+        return vehicle;
+    }
+
+    public int getVehicleID() {
+        return vehicleID;
+    }
+
+    public String getTariff() {
+        return tariff;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setTo(String to) {
+        this.to = to;
+    }
+
+    public void setDriver(String driver) {
+        this.driver = driver;
+    }
+
+    public void setDriverID(int driverID) {
+        this.driverID = driverID;
+    }
+
+    public void setVehicle(String vehicle) {
+        this.vehicle = vehicle;
+    }
+
+    public void setVehicleID(int vehicleID) {
+        this.vehicleID = vehicleID;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     public static class Builder
     {
         private int id;

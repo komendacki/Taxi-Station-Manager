@@ -14,37 +14,25 @@ import java.sql.*;
  */
 public class Main {
 
-    private static final String URL = "jdbc:mysql://localhost:3306/my_testdb?autoReconnect=true&useSSL=false";
-    private static final String USERNAME = "root";
-    private static final String PASSWORD = "1111";
-
     public static void main(String[] args)
     {
 
-        Connection connection;
+        DBWorker worker = new DBWorker();
 
-        try
-        {
-            Driver driver = new FabricMySQLDriver();
-            DriverManager.registerDriver(driver);
-
-            connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-            Statement statement = connection.createStatement();
-
-            if (!connection.isClosed())
-            {
-                System.out.println("Connected");
-            }
+//            if (!worker.connection.isClosed())
+//            {
+//                System.out.println("Connected");
+//            }
 
             SwingUtilities.invokeLater(new Runnable()
             {
                 public void run()
                 {
                     JFrame frame = new MainFrame("Taxi Station Manager");
-                    frame.setSize(600, 500);
+                    frame.setSize(800, 800);
 
-                    String[][] data = {{"01", "Alex", "18"}, {"02", "Brandon", "20"}, {"03", "Cassie", "18"}, {"04", "Steve", "25"}};
-                    String[] column = {"ID", "Name", "Age"};
+                    String[][] data = {{"01", "Alex", "18", "18", null, null, null, null, null}, {"02", "Brandon", "20", "20", null, null, null, null, null}, {"03", "Cassie", "18", "18", null, null, null, null, null}, {"04", "Steve", "25", "25", null, null, null, null, null}};
+                    String[] column = {"ID", "Client", "Phone", "From", "To", "Time", "Driver", "Vehicle",  "Status"};
 
                     // Create JTable
                     JTable jt = new JTable(data, column);
@@ -60,13 +48,5 @@ public class Main {
 
                 }
             });
-        }
-        catch(SQLException e)
-        {
-
-        }
-
-
-
     }
 }
