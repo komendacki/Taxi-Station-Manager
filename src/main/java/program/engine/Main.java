@@ -8,6 +8,8 @@ import java.sql.Connection;
 import java.sql.Driver;
 import java.sql.SQLException;
 import java.sql.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 /**
  * Created by Admin on 23.03.2016.
@@ -19,10 +21,36 @@ public class Main {
 
         DBWorker worker = new DBWorker();
 
-//            if (!worker.connection.isClosed())
-//            {
-//                System.out.println("Connected");
-//            }
+        String query = "SELECT * FROM calls";
+
+        try
+        {
+            Statement statement = worker.getConnection().createStatement();
+            ResultSet resultSet = statement.executeQuery(query);
+
+            while(resultSet.next())
+            {
+                int id = resultSet.getInt(1);
+                String client = resultSet.getString(2);
+                String phoneNumber = resultSet.getString(3);
+                String from = resultSet.getString(4);
+                String to = resultSet.getString(5);
+                Time time = resultSet.getTime(6);
+                Date date = resultSet.getDate(7);
+                String driver = resultSet.getString(8);
+                String vehicle = resultSet.getString(9);
+                String tariff = resultSet.getString(10);
+                String status = resultSet.getString(11);
+
+                DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+                String dateS = df.format(date);
+                String timeS = df.format(time);
+
+                String out = String.format("%d | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s", id, client, phoneNumber, from, to, timeS, dateS, driver, vehicle, tariff, status);
+
+                System.out.println(System.lineSeparator());
+                System.out.println(out);
+            }
 
             SwingUtilities.invokeLater(new Runnable()
             {
@@ -48,5 +76,12 @@ public class Main {
 
                 }
             });
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+
+
     }
 }
