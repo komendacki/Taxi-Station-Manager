@@ -6,15 +6,22 @@ package program.model;
 public class Vehicle {
     private int id;
     private String name;
-    private String model;
-    private String number;
+//    private String model;
+//    private String number;
     private Driver driver;
 
-    public Vehicle(int id, String name, String model, String number, Driver driver) {
+//    public Vehicle(int id, String name, String model, String number, Driver driver) {
+//        this.id = id;
+//        this.name = name;
+//        this.model = model;
+//        this.number = number;
+//        this.driver = driver;
+//    }
+
+    public Vehicle(int id, String name, Driver driver)
+    {
         this.id = id;
         this.name = name;
-        this.model = model;
-        this.number = number;
         this.driver = driver;
     }
 
@@ -26,13 +33,13 @@ public class Vehicle {
         return name;
     }
 
-    public String getModel() {
-        return model;
-    }
-
-    public String getNumber() {
-        return number;
-    }
+//    public String getModel() {
+//        return model;
+//    }
+//
+//    public String getNumber() {
+//        return number;
+//    }
 
     public Driver getDriver() {
         return driver;

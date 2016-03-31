@@ -5,9 +5,9 @@ package program.model;
  */
 public class Tariff {
     private int id;
-    private int name;
+    private String name;
 
-    public Tariff(int id, int name) {
+    public Tariff(int id, String name) {
         this.id = id;
         this.name = name;
     }
@@ -16,7 +16,7 @@ public class Tariff {
         return id;
     }
 
-    public int getName() {
+    public String getName() {
         return name;
     }
 }

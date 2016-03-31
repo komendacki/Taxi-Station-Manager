@@ -5,9 +5,9 @@ package program.model;
  */
 public class Status {
     private int id;
-    private int name;
+    private String name;
 
-    public Status(int id, int name) {
+    public Status(int id, String name) {
         this.id = id;
         this.name = name;
     }
@@ -16,7 +16,7 @@ public class Status {
         return id;
     }
 
-    public int getName() {
+    public String getName() {
         return name;
     }
 }

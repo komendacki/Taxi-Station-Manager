@@ -1,6 +1,9 @@
 package program.engine;
 
 import program.gui.MainFrame;
+import program.model.Status;
+import program.model.Tariff;
+import program.model.Vehicle;
 
 import javax.swing.*;
 import java.sql.SQLException;
@@ -19,6 +22,9 @@ public class Main {
 
         DBWorker worker = new DBWorker();
         ArrayList<program.model.Driver> driversList = new ArrayList<program.model.Driver>();
+        ArrayList<Vehicle> vehiclesList = new ArrayList<Vehicle>();
+        ArrayList<Tariff> tariffsList = new ArrayList<Tariff>();
+        ArrayList<Status> statusList = new ArrayList<Status>();
 
 //        String callsQuery = "SELECT * FROM calls";
 //        String driversQuery = "SELECT id, name FROM workers WHERE position=2";
@@ -29,7 +35,7 @@ public class Main {
         try
         {
             Statement statement = worker.getConnection().createStatement();
-            ResultSet callsResultSet = statement.executeQuery(DBWorker.callsQuery);
+
 
             ResultSet driversResultSet = statement.executeQuery(DBWorker.driversQuery);
             while(driversResultSet.next())
@@ -43,7 +49,49 @@ public class Main {
                 driversList.add(driver);
             }
 
+            ResultSet vehiclesResultSet = statement.executeQuery(DBWorker.vehiclesQuery);
+            while(vehiclesResultSet.next())
+            {
+                int id = vehiclesResultSet.getInt(1);
+                StringBuilder stringBuilder = new StringBuilder();
+                stringBuilder.append(vehiclesResultSet.getString(2) + " ");
+                stringBuilder.append(vehiclesResultSet.getString(3) + " ");
+                stringBuilder.append(vehiclesResultSet.getString(4));
+                String name = stringBuilder.toString();
+                int driverID = vehiclesResultSet.getInt(5);
+                program.model.Driver driver = null;
 
+                for (program.model.Driver d : driversList)
+                {
+                    if (d.getId() == driverID) driver = d;
+                }
+
+                Vehicle vehicle = new Vehicle(id, name, driver);
+                vehiclesList.add(vehicle);
+            }
+
+            ResultSet tariffsResultSet = statement.executeQuery(DBWorker.tariffsQuery);
+            while(tariffsResultSet.next())
+            {
+                int id = tariffsResultSet.getInt(1);
+                String name = tariffsResultSet.getString(2);
+
+                Tariff tariff = new Tariff(id, name);
+                tariffsList.add(tariff);
+            }
+
+            ResultSet statusResultSet = statement.executeQuery(DBWorker.statusQuery);
+            while(statusResultSet.next())
+            {
+                int id = statusResultSet.getInt(1);
+                String name = statusResultSet.getString(2);
+
+                Status status = new Status(id, name);
+                statusList.add(status);
+            }
+
+
+            ResultSet callsResultSet = statement.executeQuery(DBWorker.callsQuery);
             while(callsResultSet.next())
             {
                 int id = callsResultSet.getInt(1);
