@@ -119,8 +119,8 @@ public class DBEncapsulator {
             ResultSet tariffsResultSet = statement.executeQuery(DBWorker.tariffsQuery);
             while(tariffsResultSet.next())
             {
-                int id = tariffsResultSet.getInt(1);
-                String name = tariffsResultSet.getString(2);
+                int id = tariffsResultSet.getInt("id");
+                String name = tariffsResultSet.getString("name");
 
                 Tariff tariff = new Tariff(id, name);
                 tariffsList.add(tariff);
@@ -140,8 +140,8 @@ public class DBEncapsulator {
             ResultSet statusResultSet = statement.executeQuery(DBWorker.statusQuery);
             while(statusResultSet.next())
             {
-                int id = statusResultSet.getInt(1);
-                String name = statusResultSet.getString(2);
+                int id = statusResultSet.getInt("id");
+                String name = statusResultSet.getString("name");
 
                 Status status = new Status(id, name);
                 statusList.add(status);
@@ -162,17 +162,17 @@ public class DBEncapsulator {
             ResultSet callsResultSet = statement.executeQuery(DBWorker.callsQuery);
             while(callsResultSet.next())
             {
-                int id = callsResultSet.getInt(1);
-                String client = callsResultSet.getString(2);
-                String phoneNumber = callsResultSet.getString(3);
-                String from = callsResultSet.getString(4);
-                String to = callsResultSet.getString(5);
-                Time time = callsResultSet.getTime(6);
-                Date date = callsResultSet.getDate(7);
-                int driverID = callsResultSet.getInt(8);
-                int vehicleID = callsResultSet.getInt(9);
-                int tariffID = callsResultSet.getInt(10);
-                int statusID = callsResultSet.getInt(11);
+                int id = callsResultSet.getInt("id");
+                String client = callsResultSet.getString("client");
+                String phoneNumber = callsResultSet.getString("phone_num");
+                String from = callsResultSet.getString("p_from");
+                String to = callsResultSet.getString("p_to");
+                Time time = callsResultSet.getTime("time");
+                Date date = callsResultSet.getDate("date");
+                int driverID = callsResultSet.getInt("driver");
+                int vehicleID = callsResultSet.getInt("vehicle");
+                int tariffID = callsResultSet.getInt("tariff");
+                int statusID = callsResultSet.getInt("status");
 
                 Driver driver = null;
                 for (Driver d : driversList)
@@ -220,7 +220,7 @@ public class DBEncapsulator {
         }
         catch(SQLException e)
         {
-
+            e.printStackTrace();
         }
     }
 

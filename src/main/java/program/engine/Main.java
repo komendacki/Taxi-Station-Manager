@@ -28,6 +28,7 @@ public class Main {
             Statement statement = worker.getConnection().createStatement();
             DBEncapsulator dbEncapsulator = new DBEncapsulator();
             ArrayList<Call> calls = dbEncapsulator.getCallsList();
+            //System.out.println(calls.size());
 
             for (Call c : calls)
             {
@@ -43,8 +44,10 @@ public class Main {
                     JFrame frame = new MainFrame("Taxi Station Manager");
                     frame.setSize(800, 800);
 
-                    String[][] data = {{"01", "Alex", "18", "18", null, null, null, null, null}, {"02", "Brandon", "20", "20", null, null, null, null, null}, {"03", "Cassie", "18", "18", null, null, null, null, null}, {"04", "Steve", "25", "25", null, null, null, null, null}};
-                    String[] column = {"ID", "Client", "Phone", "From", "To", "Time", "Driver", "Vehicle",  "Status"};
+                    TableGenerator generator = new TableGenerator();
+                    //String[][] data = {{"01", "Alex", "18", "18", null, null, null, null, null, null}, {"02", "Brandon", "20", "20", null,null, null, null, null, null}, {"03", "Cassie", "18", "18", null, null,null, null, null, null}, {"04", "Steve", "25", "25", null, null,null, null, null, null}};
+                    String[][] data = generator.getTable();
+                    String[] column = {"ID", "Client", "Phone", "From", "To", "Time", "Driver", "Vehicle", "Tariff", "Status"};
 
                     // Create JTable
                     JTable jt = new JTable(data, column);

@@ -12,7 +12,7 @@ public class DBWorker {
     private static final String USERNAME = "root";
     private static final String PASSWORD = "1111";
 
-    public static final String callsQuery = "SELECT * FROM calls";
+    public static final String callsQuery = "SELECT id, client, phone_num, p_from, p_to, time, date, driver, vehicle, tariff, status FROM calls";
     public static final String driversQuery = "SELECT id, name, lastname FROM workers WHERE position=2";
     public static final String vehiclesQuery = "SELECT id, name, model, ser_number, driver FROM vehicles";
     public static final String tariffsQuery = "SELECT id, name FROM tariffs";

@@ -79,53 +79,9 @@ public class Call {
         this.vehicle = vehicle;
     }
 
-    //    public String getDriver() {
-//        return driver;
-//    }
-//
-//    public int getDriverID() {
-//        return driverID;
-//    }
-//
-//    public String getVehicle() {
-//        return vehicle;
-//    }
-//
-//    public int getVehicleID() {
-//        return vehicleID;
-//    }
-//
-//    public String getTariff() {
-//        return tariff;
-//    }
-
-//    public String getStatus() {
-//        return status;
-//    }
-
     public void setTo(String to) {
         this.to = to;
     }
-
-//    public void setDriver(String driver) {
-//        this.driver = driver;
-//    }
-//
-//    public void setDriverID(int driverID) {
-//        this.driverID = driverID;
-//    }
-
-//    public void setVehicle(String vehicle) {
-//        this.vehicle = vehicle;
-//    }
-//
-//    public void setVehicleID(int vehicleID) {
-//        this.vehicleID = vehicleID;
-//    }
-//
-//    public void setStatus(String status) {
-//        this.status = status;
-//    }
 
     public static class Builder
     {
@@ -158,12 +114,6 @@ public class Call {
         public Builder vehicle(Vehicle vehicle){this.vehicle = vehicle; return this;}
         public Builder tariff(Tariff tariff){this.tariff = tariff; return this;}
         public Builder status(Status status){this.status = status; return this;}
-//        public Builder driverID(int id){this.driverID = id; return this;}
-//        public Builder driver(String driver){this.driver = driver; return this;}
-//        public Builder vehicleID(int id){this.vehicleID = id; return this;}
-//        public Builder vehicle(String vehicle){this.vehicle = vehicle; return this;}
-//        public Builder tariff(String tariff){this.tariff = tariff; return this;}
-//        public Builder status(String status){this.status = tariff; return this;}
 
         public Call build()
         {
@@ -190,8 +140,7 @@ public class Call {
 
     @Override
     public String toString() {
-        return "Call{" +
-                "id=" + id +
+        return "id=" + id +
                 ", client='" + client + '\'' +
                 ", phone='" + phone + '\'' +
                 ", from='" + from + '\'' +
@@ -201,7 +150,6 @@ public class Call {
                 ", driver=" + driver +
                 ", vehicle=" + vehicle +
                 ", tariff=" + tariff +
-                ", status=" + status +
-                '}';
+                ", status=" + status;
     }
 }
