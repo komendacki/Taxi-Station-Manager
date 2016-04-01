@@ -42,7 +42,7 @@ public class Main {
                 public void run()
                 {
                     JFrame frame = new MainFrame("Taxi Station Manager");
-                    frame.setSize(800, 800);
+                    frame.setSize(1200, 600);
 
                     TableGenerator generator = new TableGenerator();
                     //String[][] data = {{"01", "Alex", "18", "18", null, null, null, null, null, null}, {"02", "Brandon", "20", "20", null,null, null, null, null, null}, {"03", "Cassie", "18", "18", null, null,null, null, null, null}, {"04", "Steve", "25", "25", null, null,null, null, null, null}};
@@ -54,7 +54,7 @@ public class Main {
                     JScrollPane sp = new JScrollPane(jt);
 
                     frame.add(sp);
-                    frame.pack();
+                    //frame.pack();
 
 
                     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
