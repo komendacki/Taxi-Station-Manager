@@ -1,7 +1,7 @@
 package program.model;
 
 /**
- * Created by Artur Komendacki on 30.03.2016.
+ * Created by Admin on 30.03.2016.
  */
 public class Call {
 
@@ -16,6 +16,7 @@ public class Call {
     private Vehicle vehicle;
     private Tariff tariff;
     private Status status;
+
 
     public int getId() {
         return id;
@@ -79,29 +80,29 @@ public class Call {
 
     public static class Builder
     {
-        private int id;
-        private String client;
-        private String phone;
-        private String from;
-        private String to;
-        private String time;
-        private String date;
-        private Driver driver;
-        private Vehicle vehicle;
-        private Tariff tariff;
-        private Status status;
+        private int builderId;
+        private String builderClient;
+        private String builderPhone;
+        private String builderFrom;
+        private String builderTo;
+        private String builderTime;
+        private String builderDate;
+        private Driver builderDriver;
+        private Vehicle builderVehicle;
+        private Tariff builderTariff;
+        private Status builderStatus;
 
-        public Builder id(int id){this.id = id; return this;}
-        public Builder client(String client){this.client = client; return this;}
-        public Builder phone(String phone){this.phone = phone; return this;}
-        public Builder from(String from){this.from = from; return this;}
-        public Builder to(String to){this.to = to; return this;}
-        public Builder time(String time){this.time = time; return this;}
-        public Builder date(String date){this.date = date; return this;}
-        public Builder driver(Driver driver){this.driver = driver; return this;}
-        public Builder vehicle(Vehicle vehicle){this.vehicle = vehicle; return this;}
-        public Builder tariff(Tariff tariff){this.tariff = tariff; return this;}
-        public Builder status(Status status){this.status = status; return this;}
+        public Builder id(int id){this.builderId = id; return this;}
+        public Builder client(String client){this.builderClient = client; return this;}
+        public Builder phone(String phone){this.builderPhone = phone; return this;}
+        public Builder from(String from){this.builderFrom = from; return this;}
+        public Builder to(String to){this.builderTo = to; return this;}
+        public Builder time(String time){this.builderTime = time; return this;}
+        public Builder date(String date){this.builderDate = date; return this;}
+        public Builder driver(Driver driver){this.builderDriver = driver; return this;}
+        public Builder vehicle(Vehicle vehicle){this.builderVehicle = vehicle; return this;}
+        public Builder tariff(Tariff tariff){this.builderTariff = tariff; return this;}
+        public Builder status(Status status){this.builderStatus = status; return this;}
 
         public Call build()
         {
@@ -113,31 +114,31 @@ public class Call {
 
     private Call(Builder builder)
     {
-        this.id = builder.id;
-        this.client = builder.client;
-        this.phone = builder.phone;
-        this.from = builder.from;
-        this.to = builder.to;
-        this.time = builder.time;
-        this.date = builder.date;
-        this.driver = builder.driver;
-        this.vehicle = builder.vehicle;
-        this.tariff = builder.tariff;
-        this.status = builder.status;
+        this.id = builder.builderId;
+        this.client = builder.builderClient;
+        this.phone = builder.builderPhone;
+        this.from = builder.builderFrom;
+        this.to = builder.builderTo;
+        this.time = builder.builderTime;
+        this.date = builder.builderDate;
+        this.driver = builder.builderDriver;
+        this.vehicle = builder.builderVehicle;
+        this.tariff = builder.builderTariff;
+        this.status = builder.builderStatus;
     }
 
     @Override
     public String toString() {
-        return "id=" + id +
-                ", client='" + client + '\'' +
-                ", phone='" + phone + '\'' +
-                ", from='" + from + '\'' +
-                ", to='" + to + '\'' +
-                ", time='" + time + '\'' +
-                ", date='" + date + '\'' +
-                ", driver=" + driver +
-                ", vehicle=" + vehicle +
-                ", tariff=" + tariff +
-                ", status=" + status;
+        return "builderId=" + id +
+                ", builderClient='" + client + '\'' +
+                ", builderPhone='" + phone + '\'' +
+                ", builderFrom='" + from + '\'' +
+                ", builderTo='" + to + '\'' +
+                ", builderTime='" + time + '\'' +
+                ", builderDate='" + date + '\'' +
+                ", builderDriver=" + driver +
+                ", builderVehicle=" + vehicle +
+                ", builderTariff=" + tariff +
+                ", builderStatus=" + status;
     }
 }
