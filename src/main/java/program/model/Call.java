@@ -1,7 +1,7 @@
 package program.model;
 
 /**
- * Created by Admin on 30.03.2016.
+ * Created by Artur Komendacki on 30.03.2016.
  */
 public class Call {
 
@@ -16,12 +16,6 @@ public class Call {
     private Vehicle vehicle;
     private Tariff tariff;
     private Status status;
-//    private String driver;
-//    private int driverID;
-//    private String vehicle;
-//    private int vehicleID;
-//    private String tariff;
-//    private String status;
 
     public int getId() {
         return id;
@@ -96,12 +90,6 @@ public class Call {
         private Vehicle vehicle;
         private Tariff tariff;
         private Status status;
-//        private String driver;
-//        private int driverID;
-//        private String vehicle;
-//        private int vehicleID;
-//        private String tariff;
-//        private String status;
 
         public Builder id(int id){this.id = id; return this;}
         public Builder client(String client){this.client = client; return this;}
